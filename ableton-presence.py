@@ -13,7 +13,7 @@ def strip_not_responding(text):
 def get_ableton_window_title():
     def enum_callback(hwnd, result):
         title = win32gui.GetWindowText(hwnd)
-        if "Ableton Live" in title:
+        if title.find(" - Ableton Live") != -1:
             result.append(title)
     result = []
     win32gui.EnumWindows(enum_callback, result)
@@ -44,7 +44,7 @@ while True:
 
     lasttitle = title
 
-    version = title.split(" - ")[1].rstrip("Lite")
+    version = title.split(" - ")[1].removesuffix("Lite")
     project = title.split(" ")[0].rstrip("*")
 
     if not rpc_connected:
