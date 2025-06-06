@@ -38,11 +38,11 @@ while True:
         time.sleep(SLEEP)
         continue
 
-    if lasttitle == title:
+    if lasttitle == title.replace("*", ""):
         time.sleep(SLEEP)
         continue
 
-    lasttitle = title
+    lasttitle = title.replace("*", "")
 
     version = title.split(" - ")[1].removesuffix("Lite")
     project = title.split(" ")[0].rstrip("*")
