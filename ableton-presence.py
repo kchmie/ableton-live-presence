@@ -53,7 +53,7 @@ while True:
         rpc_connected = True
     print(f"New project: {project}")
     RPC.update(large_image="ableton-live", large_text=version,
-               state=version, details=f"Project: {project}",
+               state="Making music", details=f"Project: {project}",
                party_id="music")
 
     time.sleep(SLEEP)
